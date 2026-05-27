@@ -31,6 +31,7 @@ startup
         { "Reset", true, "Reset on exit game", null },
         { "SplitsGroup", true, "Splits", null },
         { "IntroSplit", true, "Split on Intro", "SplitsGroup" },
+        { "Track1Split", true, "Split on Track 1", "SplitsGroup" },
     };
     vars.Uhara.Settings.Create(_settings);
 }
@@ -56,7 +57,7 @@ init
     vars.Events.FunctionFlag("StartGame", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnSeqFinish");
     vars.Events.FunctionFlag("Reset", "UI_ApplyExitGame_C", "UI_ApplyExitGame_C", "BndEvt__AcceptBtn_K2Node_ComponentBoundEvent_17_ButtonPressed__DelegateSignature");
     vars.Events.FunctionFlag("IntroSplit", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnStop");
-
+    vars.Events.FunctionFlag("Track1Split", "BP_PAPlayerController_C", "BP_PAPlayerController_C", "UpdateInterpCinematic");
 }
 
 start
@@ -72,6 +73,7 @@ split
     if (vars.MissingUhara) return false;
 
     if (vars.Resolver.CheckFlag("IntroSplit") && settings["IntroSplit"]) return true;
+    if (vars.Resolver.CheckFlag("Track1Split") && settings["Track1Split"]) return true;
 }
 
 reset
