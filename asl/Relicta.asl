@@ -28,7 +28,7 @@ startup
     dynamic[,] _settings =
     {
         // Start examples
-        { "Nothing1", true, "Nothing1", null },
+        { "Reset", true, "Reset on exit game", null },
     };
     vars.Uhara.Settings.Create(_settings);
 }
@@ -52,6 +52,8 @@ init
     // Example event listeners.
     // Replace the placeholder strings with the real function names for your game.
     vars.Events.FunctionFlag("StartGame", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnSeqFinish");
+    vars.Events.FunctionFlag("Reset", "UI_ApplyExitGame_C", "UI_ApplyExitGame_C", "BndEvt__AcceptBtn_K2Node_ComponentBoundEvent_17_ButtonPressed__DelegateSignature");
+
 
 }
 
@@ -61,6 +63,13 @@ start
 
     // Simple start example
     if (vars.Resolver.CheckFlag("StartGame")) return true;
+}
+
+reset
+{
+    if (vars.MissingUhara) return false;
+
+    if (vars.Resolver.CheckFlag("Reset") && settings["Reset"]) return true;
 }
 
 update
