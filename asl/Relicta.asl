@@ -46,9 +46,10 @@ startup
         { "SplitsGroup", true, "Splits", null },
         { "IntroSplit", true, "Split on Intro", "SplitsGroup" },
         { "Track1Split", true, "Split on Track 1", "SplitsGroup" },
-        { "Lab1Split", true, "Split on Lab, De Garlache", "SplitsGroup" },
+        { "LabForestSplit", true, "Split on Lab (Forest)", "SplitsGroup" },
         { "ForestSplit", true, "Split on Forest", "SplitsGroup" },
-        { "GlacierSplit", true, "Split on Glacier", "SplitsGroup" },
+        { "LabTaigaSplit", true, "Split on Lab (Taiga)", "SplitsGroup" },
+        { "TaigaSplit", true, "Split on Taiga", "SplitsGroup" },
     };
     vars.Uhara.Settings.Create(_settings);
 }
@@ -75,9 +76,16 @@ init
     vars.Events.FunctionFlag("Reset", "UI_ApplyExitGame_C", "UI_ApplyExitGame_C", "BndEvt__AcceptBtn_K2Node_ComponentBoundEvent_17_ButtonPressed__DelegateSignature");
     vars.Events.FunctionFlag("IntroSplit", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnStop");
     vars.Events.FunctionFlag("Track1Split", "BP_PAPlayerController_C", "BP_PAPlayerController_C", "UpdateInterpCinematic");
-    vars.Events.FunctionFlag("Lab1Split", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "EntryElevatorDay2");
-    vars.Events.FunctionFlag("ForestSplit", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "BndEvt__R_EndDome2_K2Node_ActorBoundEvent_9_ActorEndOverlapSignature__DelegateSignature");
-    vars.Events.FunctionFlag("GlacierSplit", "GlaciarDome01_Geo_C", "GlaciarDome01_Geo_C", "BndEvt__BP_NarrativeElevator2_2_K2Node_ActorBoundEvent_3_ElevatorGetsToDestination__DelegateSignature");
+    vars.Events.FunctionFlag("LabForestSplit", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "EntryElevatorDay2");
+    
+    //vars.Events.FunctionFlag("ForestSplit", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "BndEvt__R_EndDome2_K2Node_ActorBoundEvent_9_ActorEndOverlapSignature__DelegateSignature");
+    vars.Events.FunctionFlag("ForestSplit", "BDome01_Audio_C", "BDome01_Audio_C", "BndEvt__TriggerBox13_11_K2Node_ActorBoundEvent_20_ActorBeginOverlapSignature__DelegateSignature");
+    // [BDome01_Audio_C] [BDome01_Audio_C] [BndEvt__TriggerBox13_11_K2Node_ActorBoundEvent_20_ActorBeginOverlapSignature__DelegateSignature]
+    
+    vars.Events.FunctionFlag("LabTaigaSplit", "GlaciarDome01_Geo_C", "GlaciarDome01_Geo_C", "BndEvt__BP_NarrativeElevator2_2_K2Node_ActorBoundEvent_3_ElevatorGetsToDestination__DelegateSignature");
+    vars.Events.FunctionFlag("TaigaSplit", "GlaciarDome01_Audio_C", "GlaciarDome01_Audio_C", "BndEvt__TriggerVolume3_2_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature");
+    // [GlaciarDome01_Audio_C] [GlaciarDome01_Audio_C] [BndEvt__TriggerVolume3_2_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature]
+
 }
 
 start
@@ -105,9 +113,10 @@ split
 
     if (vars.Resolver.CheckFlag("IntroSplit") && settings["IntroSplit"]) return true;
     if (vars.Resolver.CheckFlag("Track1Split") && settings["Track1Split"] && vars.DoSplitOnce("Track1Split")) return true;
-    if (vars.Resolver.CheckFlag("Lab1Split") && settings["Lab1Split"] && vars.DoSplitOnce("Lab1Split")) return true;
+    if (vars.Resolver.CheckFlag("LabForestSplit") && settings["LabForestSplit"] && vars.DoSplitOnce("LabForestSplit")) return true;
     if (vars.Resolver.CheckFlag("ForestSplit") && settings["ForestSplit"] && vars.DoSplitOnce("ForestSplit")) return true;
-    if (vars.Resolver.CheckFlag("GlacierSplit") && settings["GlacierSplit"] && vars.DoSplitOnce("GlacierSplit")) return true;
+    if (vars.Resolver.CheckFlag("LabTaigaSplit") && settings["LabTaigaSplit"] && vars.DoSplitOnce("LabTaigaSplit")) return true;
+    if (vars.Resolver.CheckFlag("TaigaSplit") && settings["TaigaSplit"] && vars.DoSplitOnce("TaigaSplit")) return true;
 }
 
 reset
