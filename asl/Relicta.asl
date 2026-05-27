@@ -29,6 +29,8 @@ startup
     {
         // Start examples
         { "Reset", true, "Reset on exit game", null },
+        { "SplitsGroup", true, "Splits", null },
+        { "IntroSplit", true, "Split on Intro", "SplitsGroup" },
     };
     vars.Uhara.Settings.Create(_settings);
 }
@@ -53,7 +55,7 @@ init
     // Replace the placeholder strings with the real function names for your game.
     vars.Events.FunctionFlag("StartGame", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnSeqFinish");
     vars.Events.FunctionFlag("Reset", "UI_ApplyExitGame_C", "UI_ApplyExitGame_C", "BndEvt__AcceptBtn_K2Node_ComponentBoundEvent_17_ButtonPressed__DelegateSignature");
-
+    vars.Events.FunctionFlag("IntroSplit", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnStop");
 
 }
 
@@ -63,6 +65,13 @@ start
 
     // Simple start example
     if (vars.Resolver.CheckFlag("StartGame")) return true;
+}
+
+split
+{
+    if (vars.MissingUhara) return false;
+
+    if (vars.Resolver.CheckFlag("IntroSplit") && settings["IntroSplit"]) return true;
 }
 
 reset
