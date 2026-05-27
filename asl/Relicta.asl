@@ -25,6 +25,20 @@ startup
     Assembly.Load(File.ReadAllBytes("Components/uhara10")).CreateInstance("Main");
     // vars.Uhara.AlertLoadless(); // Optional: alert that Game Time is being used for load removal
 
+    vars.CompletedDoSplitOnce = new HashSet<string>();
+
+    vars.DoSplitOnce = (Func<string, bool>)((key) =>
+    {
+    if (vars.CompletedDoSplitOnce.Contains(key)) return false;
+    vars.CompletedDoSplitOnce.Add(key);
+    return true;
+    });
+
+    vars.ResetDoSplitOnce = (Action)(() =>
+    {
+    vars.CompletedDoSplitOnce.Clear();
+    });
+
     dynamic[,] _settings =
     {
         // Start examples
@@ -32,6 +46,9 @@ startup
         { "SplitsGroup", true, "Splits", null },
         { "IntroSplit", true, "Split on Intro", "SplitsGroup" },
         { "Track1Split", true, "Split on Track 1", "SplitsGroup" },
+        { "Lab1Split", true, "Split on Lab, De Garlache", "SplitsGroup" },
+        { "ForestSplit", true, "Split on Forest", "SplitsGroup" },
+        { "GlacierSplit", true, "Split on Glacier", "SplitsGroup" },
     };
     vars.Uhara.Settings.Create(_settings);
 }
@@ -58,6 +75,9 @@ init
     vars.Events.FunctionFlag("Reset", "UI_ApplyExitGame_C", "UI_ApplyExitGame_C", "BndEvt__AcceptBtn_K2Node_ComponentBoundEvent_17_ButtonPressed__DelegateSignature");
     vars.Events.FunctionFlag("IntroSplit", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnStop");
     vars.Events.FunctionFlag("Track1Split", "BP_PAPlayerController_C", "BP_PAPlayerController_C", "UpdateInterpCinematic");
+    vars.Events.FunctionFlag("Lab1Split", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "EntryElevatorDay2");
+    vars.Events.FunctionFlag("ForestSplit", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "BndEvt__R_EndDome2_K2Node_ActorBoundEvent_9_ActorEndOverlapSignature__DelegateSignature");
+    vars.Events.FunctionFlag("GlacierSplit", "GlaciarDome01_Geo_C", "GlaciarDome01_Geo_C", "BndEvt__BP_NarrativeElevator2_2_K2Node_ActorBoundEvent_3_ElevatorGetsToDestination__DelegateSignature");
 }
 
 start
@@ -65,7 +85,18 @@ start
     if (vars.MissingUhara) return false;
 
     // Simple start example
-    if (vars.Resolver.CheckFlag("StartGame")) return true;
+    if (vars.Resolver.CheckFlag("StartGame")) 
+    {
+        vars.ResetDoSplitOnce();
+        return true;
+    }
+
+}
+
+onStart
+{
+    if (vars.MissingUhara) return;
+    vars.ResetDoSplitOnce();
 }
 
 split
@@ -73,14 +104,27 @@ split
     if (vars.MissingUhara) return false;
 
     if (vars.Resolver.CheckFlag("IntroSplit") && settings["IntroSplit"]) return true;
-    if (vars.Resolver.CheckFlag("Track1Split") && settings["Track1Split"]) return true;
+    if (vars.Resolver.CheckFlag("Track1Split") && settings["Track1Split"] && vars.DoSplitOnce("Track1Split")) return true;
+    if (vars.Resolver.CheckFlag("Lab1Split") && settings["Lab1Split"] && vars.DoSplitOnce("Lab1Split")) return true;
+    if (vars.Resolver.CheckFlag("ForestSplit") && settings["ForestSplit"] && vars.DoSplitOnce("ForestSplit")) return true;
+    if (vars.Resolver.CheckFlag("GlacierSplit") && settings["GlacierSplit"] && vars.DoSplitOnce("GlacierSplit")) return true;
 }
 
 reset
 {
     if (vars.MissingUhara) return false;
 
-    if (vars.Resolver.CheckFlag("Reset") && settings["Reset"]) return true;
+    if (vars.Resolver.CheckFlag("Reset") && settings["Reset"])
+    {
+        vars.ResetDoSplitOnce();
+        return true;
+    }
+}
+
+onReset
+{
+    if (vars.MissingUhara) return;
+    vars.ResetDoSplitOnce();
 }
 
 update
