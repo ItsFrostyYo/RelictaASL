@@ -25,25 +25,10 @@ startup
     Assembly.Load(File.ReadAllBytes("Components/uhara10")).CreateInstance("Main");
     // vars.Uhara.AlertLoadless(); // Optional: alert that Game Time is being used for load removal
 
-    // Load removal state should start disabled.
-    vars.LoadRemovalName = false;
-
     dynamic[,] _settings =
     {
         // Start examples
-        { "group_start", true, "Start Examples", null },
-        { "UseExampleStart", false, "Start on ExampleStart", "group_start" },
-        { "UseExampleStartWithSetting", false, "Start on ExampleStartWithSetting", "group_start" },
-
-        // Split examples
-        { "group_split", true, "Split Examples", null },
-        { "UseExampleSplit", false, "Split on ExampleSplit", "group_split" },
-        { "UseExampleSplitWithSetting", false, "Split on ExampleSplitWithSetting", "group_split" },
-
-        // Reset examples
-        { "group_reset", true, "Reset Examples", null },
-        { "UseExampleReset", false, "Reset on ExampleReset", "group_reset" },
-        { "UseExampleResetAndClearLoadRemoval", false, "Reset and clear load removal", "group_reset" },
+        { "Nothing1", true, "Nothing1", null },
     };
     vars.Uhara.Settings.Create(_settings);
 }
@@ -66,15 +51,8 @@ init
 
     // Example event listeners.
     // Replace the placeholder strings with the real function names for your game.
-    vars.Events.FunctionFlag("ExampleStart", "", "", "");
-    vars.Events.FunctionFlag("ExampleStartWithSetting", "", "", "");
-    vars.Events.FunctionFlag("ExampleSplit", "", "", "");
-    vars.Events.FunctionFlag("ExampleSplitWithSetting", "", "", "");
-    vars.Events.FunctionFlag("ExampleReset", "", "", "");
-    vars.Events.FunctionFlag("ExampleLoadStart", "", "", "");
-    vars.Events.FunctionFlag("ExampleLoadEnd", "", "", "");
+    vars.Events.FunctionFlag("StartGame", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnSeqFinish");
 
-    vars.LoadRemovalName = false;
 }
 
 start
@@ -82,10 +60,7 @@ start
     if (vars.MissingUhara) return false;
 
     // Simple start example
-    if (settings["UseExampleStart"] && vars.Resolver.CheckFlag("ExampleStart")) return true;
-
-    // Start example gated behind its own setting
-    if (settings["UseExampleStartWithSetting"] && vars.Resolver.CheckFlag("ExampleStartWithSetting")) return true;
+    if (vars.Resolver.CheckFlag("StartGame")) return true;
 }
 
 update
@@ -93,51 +68,4 @@ update
     if (vars.MissingUhara) return;
 
     vars.Uhara.Update();
-
-    // Example load removal start and end flags
-    if (vars.Resolver.CheckFlag("ExampleLoadStart"))
-        vars.LoadRemovalName = true;
-
-    if (vars.Resolver.CheckFlag("ExampleLoadEnd"))
-        vars.LoadRemovalName = false;
-}
-
-split
-{
-    if (vars.MissingUhara) return false;
-
-    // Simple split example
-    if (settings["UseExampleSplit"] && vars.Resolver.CheckFlag("ExampleSplit")) return true;
-
-    // Split example gated behind its own setting
-    if (settings["UseExampleSplitWithSetting"] && vars.Resolver.CheckFlag("ExampleSplitWithSetting")) return true;
-}
-
-reset
-{
-    if (vars.MissingUhara) return false;
-
-    // Simple reset example
-    if (settings["UseExampleReset"] && vars.Resolver.CheckFlag("ExampleReset")) return true;
-
-    // Reset example that also clears load removal state
-    if (settings["UseExampleResetAndClearLoadRemoval"] && vars.Resolver.CheckFlag("ExampleReset"))
-    {
-        vars.LoadRemovalName = false;
-        return true;
-    }
-}
-
-onReset
-{
-    if (vars.MissingUhara) return;
-
-    vars.LoadRemovalName = false;
-}
-
-isLoading
-{
-    if (vars.MissingUhara) return false;
-
-    return vars.LoadRemovalName;
 }
