@@ -3,7 +3,7 @@
 // Common Unreal packaged games often look like "GameName-Win64-Shipping".
 // https://github.com/ru-mii/uhara
 
-state("GameName-Win64-Shipping"){}
+state("Relicta-Win64-Shipping"){}
 
 startup
 {
