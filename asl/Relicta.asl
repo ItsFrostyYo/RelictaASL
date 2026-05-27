@@ -15,7 +15,7 @@ startup
             "Missing required file: Components/uhara10,\n" +
             "Please place uhara10 in your LiveSplit Components folder.\n" +
             "https://github.com/ru-mii/uhara/raw/refs/heads/main/bin/uhara10",
-            "Example Autosplitter " + vars.ScriptVersion,
+            "Relicta Autosplitter " + vars.ScriptVersion,
             System.Windows.Forms.MessageBoxButtons.OK,
             System.Windows.Forms.MessageBoxIcon.Error
         );
