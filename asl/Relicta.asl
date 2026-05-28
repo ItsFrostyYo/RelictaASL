@@ -78,54 +78,118 @@ init
     vars.Events.FunctionFlag("StartGame", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnSeqFinish");
     vars.Events.FunctionFlag("Reset", "UI_ApplyExitGame_C", "UI_ApplyExitGame_C", "BndEvt__AcceptBtn_K2Node_ComponentBoundEvent_17_ButtonPressed__DelegateSignature");
 
-    // Intro Split
-    vars.Events.FunctionFlag("IntroSplit", "BotanicalDome01_P_C", "BotanicalDome01_P_C", "SecondaryMapLoaded");
+
+    vars.Events.FunctionFlag("IntroSplit", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnStop");
     // [MeteoriteChamber02_Gameplay_C] [MeteoriteChamber02_Gameplay_C] [OnStop]
-    // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [SecondaryMapLoaded]
-
-
-    // Track 1 Split
-    vars.Events.FunctionFlag("Track1Split", "BotanicalLab01_P_C", "BotanicalLab01_P_C", "MapLoaded");
-    // [BP_PAPlayerController_C] [BP_PAPlayerController_C] [UpdateInterpCinematic]
-    // [BDome01_Audio_C] [BDome01_Audio_C] [BndEvt__TriggerBox11_5_K2Node_ActorBoundEvent_8_ActorBeginOverlapSignature__DelegateSignature]
-    // [BotanicalLab01_P_C] [BotanicalLab01_P_C] [MapLoaded]
-
-
-    // Lab Forest Split. Currently splits like 10 times.
-    vars.Events.FunctionFlag("LabForestSplit", "BotanicalDome01_P_C", "BotanicalDome01_P_C", "MapLoaded");
-    // [BDome01_Gameplay_C] [BDome01_Gameplay_C] [EntryElevatorDay2]
-    // [BotanicalLab01_Audio_C] [BotanicalLab01_Audio_C] [BndEvt__TriggerBox4_2_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature]
     // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [MapLoaded]
+    // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [SecondaryMapLoaded]
     // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [OnLoadLevels]
 
 
-    //vars.Events.FunctionFlag("ForestSplit", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "BndEvt__R_EndDome2_K2Node_ActorBoundEvent_9_ActorEndOverlapSignature__DelegateSignature");
+    vars.Events.FunctionFlag("Track1Split", "BotanicalLab01_P_C", "BotanicalLab01_P_C", "SecondaryMapLoaded");
+    // [BP_PAPlayerController_C] [BP_PAPlayerController_C] [UpdateInterpCinematic]
+    // [BDome01_Audio_C] [BDome01_Audio_C] [BndEvt__TriggerBox11_5_K2Node_ActorBoundEvent_8_ActorBeginOverlapSignature__DelegateSignature]
+    // [BotanicalLab01_P_C] [BotanicalLab01_P_C] [MapLoaded]
+    // try this:
+    // [BotanicalLab01_P_C] [BotanicalLab01_P_C] [SecondaryMapLoaded]
+
+
+    vars.Events.FunctionFlag("LabForestSplit", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "EntryElevatorDay2");
+    // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [MapLoaded] already appears after intro
+    // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [SecondaryMapLoaded] already appears after intro
+    // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [OnLoadLevels] already appears after intro
+    // [BDome01_Gameplay_C] [BDome01_Gameplay_C] [EntryElevatorDay2]
+
+
     vars.Events.FunctionFlag("ForestSplit", "BDome01_Audio_C", "BDome01_Audio_C", "BndEvt__TriggerBox13_11_K2Node_ActorBoundEvent_20_ActorBeginOverlapSignature__DelegateSignature");
+    // [BDome01_Gameplay_C] [BDome01_Gameplay_C] [BndEvt__R_EndDome2_K2Node_ActorBoundEvent_9_ActorEndOverlapSignature__DelegateSignature]
     // [BDome01_Audio_C] [BDome01_Audio_C] [BndEvt__TriggerBox13_11_K2Node_ActorBoundEvent_20_ActorBeginOverlapSignature__DelegateSignature]
+    // [Lobby_P_C] [Lobby_P_C] [MapLoaded]
+    // [Lobby_P_C] [Lobby_P_C] [SecondaryMapLoaded]
+    // [Lobby_P_C] [Lobby_P_C] [OnLoadLevels]
+
+    vars.Events.FunctionFlag("LabTaigaSplit", "GlaciarDome01_P_C", "GlaciarDome01_P_C", "OnLoadLevels");
+    // [GlaciarDome01_P_C] [GlaciarDome01_P_C] [MapLoaded]
+    // [GlaciarDome01_P_C] [GlaciarDome01_P_C] [SecondaryMapLoaded]
+    // [GlaciarDome01_Audio_C] [GlaciarDome01_Audio_C] [BndEvt__TriggerVolume2_2_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature]
+    // Probably the best for all splits:
+    // [GlaciarDome01_P_C] [GlaciarDome01_P_C] [OnLoadLevels]
+
     
-
-
-    vars.Events.FunctionFlag("LabTaigaSplit", "GlaciarDome01_Geo_C", "GlaciarDome01_Geo_C", "BndEvt__BP_NarrativeElevator2_2_K2Node_ActorBoundEvent_3_ElevatorGetsToDestination__DelegateSignature");
-    vars.Events.FunctionFlag("TaigaSplit", "GlaciarDome01_Audio_C", "GlaciarDome01_Audio_C", "BndEvt__TriggerVolume3_2_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature");
+    vars.Events.FunctionFlag("TaigaSplit", "GlaciarLab02_P_C", "GlaciarLab02_P_C", "OnLoadLevels");
     // [GlaciarDome01_Audio_C] [GlaciarDome01_Audio_C] [BndEvt__TriggerVolume3_2_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature]
+    // [GlaciarLab02_P_C] [GlaciarLab02_P_C] [MapLoaded]
+    // [GlaciarLab02_P_C] [GlaciarLab02_P_C] [SecondaryMapLoaded]
+    // [GlaciarLab02_P_C] [GlaciarLab02_P_C] [OnLoadLevels]
 
-    // For LabCaves Split - NEED TO ADD
     vars.Events.FunctionFlag("LabCavesSplit", "GlaciarDome02_P_C", "GlaciarDome02_P_C", "MapLoaded");
     // [GlaciarDome02_P_C] [GlaciarDome02_P_C] [MapLoaded]
+    // [GlaciarDome02_P_C] [GlaciarDome02_P_C] [SecondaryMapLoaded]
+    // [GlaciarDome02_P_C] [GlaciarDome02_P_C] [OnLoadLevels]
     // [GlaciarDome02_Geo_C] [GlaciarDome02_Geo_C] [BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_5_ElevatorGetsToDestination__DelegateSignature]
 
-    // For Caves Split - NEED TO ADD
+
     vars.Events.FunctionFlag("CavesSplit", "GlaciarLab03_P_C", "GlaciarLab03_P_C", "MapLoaded");
     // [BP_NarrativeElevator_C] [BP_NarrativeElevator] [BndEvt__EnterElevatorCollision_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature]
     // [GlaciarLab03_P_C] [GlaciarLab03_P_C] [MapLoaded]
+    // [GlaciarLab03_P_C] [GlaciarLab03_P_C] [SecondaryMapLoaded]
+    // [GlaciarLab03_Gameplay_C] [GlaciarLab03_Gameplay_C] [ExecuteUbergraph_GlaciarLab03_Gameplay]
+    // [GlaciarLab03_P_C] [GlaciarLab03_P_C] [OnLoadLevels]
 
     // Split for Relicta chamber?
     // [MeteoriteChamber02_Gameplay_C] [MeteoriteChamber02_Gameplay_C] [BndEvt__BP_GenericActivator_208_K2Node_ActorBoundEvent_1_LevelEventDelegate_OnActorInteraction__DelegateSignature]
     // [MeteoriteChamber02_Gameplay_C] [MeteoriteChamber02_Gameplay_C] [OnStop]
 
-    // For LabCliff Split - NEED TO ADD
+
     vars.Events.FunctionFlag("LabCliffSplit", "BotanicalDome02_P_C", "BotanicalDome02_P_C", "MapLoaded");
     // [BotanicalDome02_P_C] [BotanicalDome02_P_C] [MapLoaded]
+    // [BotanicalDome02_P_C] [BotanicalDome02_P_C] [SecondaryMapLoaded]
+    // [BotanicalDome02_P_C] [BotanicalDome02_P_C] [OnLoadLevels]
+    // [BotanicalDome02_Geo_C] [BotanicalDome02_Geo_C] [BndEvt__BP_NarrativeElevator_2_K2Node_ActorBoundEvent_0_ElevatorGetsToDestination__DelegateSignature]
+
+
+    // Cliff
+    // [BotanicalLab03_P_C] [BotanicalLab03_P_C] [MapLoaded]
+    // [BotanicalLab03_P_C] [BotanicalLab03_P_C] [SecondaryMapLoaded]
+    // [BotanicalLab03_Geo_C] [BotanicalLab03_Geo_C] [ExecuteUbergraph_BotanicalLab03_Geo]
+    // [BotanicalLab03_P_C] [BotanicalLab03_P_C] [OnLoadLevels]
+    // [BotanicalLab03_Geo_C] [BotanicalLab03_Geo_C] [BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_1_ElevatorGetsToDestination__DelegateSignature]
+
+
+    // LabCanyon
+    // [AridDome01_P_C] [AridDome01_P_C] [MapLoaded]
+    // [AridDome01_P_C] [AridDome01_P_C] [SecondaryMapLoaded]
+    // [AridDome01_P_C] [AridDome01_P_C] [OnLoadLevels]
+    // [AridDome01_Geo_C] [AridDome01_Geo_C] [BndEvt__BP_NarrativeElevator_2_K2Node_ActorBoundEvent_5_ElevatorGetsToDestination__DelegateSignature]
+
+    // Canyon
+    // [AridLab02_P_C] [AridLab02_P_C] [MapLoaded]
+    // [AridLab02_P_C] [AridLab02_P_C] [SecondaryMapLoaded]
+    // [AridLab02_P_C] [AridLab02_P_C] [OnLoadLevels]
+    // [AridLab02_Geo_C] [AridLab02_Geo_C] [StartStandard]
+    // [AridLab02_Gameplay_C] [AridLab02_Gameplay_C] [BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_0_ElevatorGetsToDestination__DelegateSignature]
+
+    // LabBeach
+    // [TropicalDome01_P_C] [TropicalDome01_P_C] [MapLoaded]
+    // [TropicalDome01_P_C] [TropicalDome01_P_C] [SecondaryMapLoaded]
+    // [TropicalDome01_P_C] [TropicalDome01_P_C] [OnLoadLevels]
+    // [TDome01_Geo_C] [TDome01_Geo_C] [BndEvt__TriggerBox2_3_K2Node_ActorBoundEvent_1_ActorBeginOverlapSignature__DelegateSignature]
+    // [TDome01_Geo_C] [TDome01_Geo_C] [ExecuteUbergraph_TDome01_Geo]
+
+    // Beach
+    // [TDome01_Geo_C] [TDome01_Geo_C] [ExecuteUbergraph_TDome01_Geo]
+    // [TropicalLab02_P_C] [TropicalLab02_P_C] [MapLoaded]
+    // [TropicalLab02_P_C] [TropicalLab02_P_C] [SecondaryMapLoaded]
+    // [TropicalLab02_P_C] [TropicalLab02_P_C] [OnLoadLevels]
+    // [TropicalLab02_Geo_C] [TropicalLab02_Geo_C] [StartStandard]
+    // [TropicalLab02_Geo_C] [TropicalLab02_Geo_C] [BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_0_ElevatorGetsToDestination__DelegateSignature]
+
+    // LabGlacier
+    // [GlaciarLab03_Gameplay_C] [GlaciarLab03_Gameplay_C] [ExecuteUbergraph_GlaciarLab03_Gameplay]
+    // [GlaciarDome03_P_C] [GlaciarDome03_P_C] [MapLoaded]
+    // [GlaciarDome03_P_C] [GlaciarDome03_P_C] [SecondaryMapLoaded]
+    // [GlaciarDome03_P_C] [GlaciarDome03_P_C] [OnLoadLevels]
+    // [GlaciarDome03_Geo_C] [GlaciarDome03_Geo_C] [BndEvt__BP_NarrativeElevator_2_K2Node_ActorBoundEvent_2_ElevatorGetsToDestination__DelegateSignature]
 }
 
 start
