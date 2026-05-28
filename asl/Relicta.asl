@@ -79,9 +79,9 @@ startup
 
         { "LabJungleSplit", true, "Split on Lab (Jungle)", "SplitsGroup" },
         { "JungleSplit", true, "Split on Jungle", "SplitsGroup" },
-        
-        { "EndTable", true, "Split on Table Ending", "SplitsGroup" },
-        { "EndHangar", true, "Split on Hangar Ending", "SplitsGroup" },
+
+        { "EndTableSplit", true, "Split on Table Ending", "SplitsGroup" },
+        { "EndHangarSplit", true, "Split on Hangar Ending", "SplitsGroup" },
     };
     vars.Uhara.Settings.Create(_settings);
 }
@@ -108,11 +108,13 @@ init
     vars.Events.FunctionFlag("Reset", "UI_ApplyExitGame_C", "UI_ApplyExitGame_C", "BndEvt__AcceptBtn_K2Node_ComponentBoundEvent_17_ButtonPressed__DelegateSignature");
 
 
-    vars.Events.FunctionFlag("IntroSplit", "MeteoriteChamber02_Gameplay_C", "MeteoriteChamber02_Gameplay_C", "OnStop");
-    // [MeteoriteChamber02_Gameplay_C] [MeteoriteChamber02_Gameplay_C] [OnStop]
+    vars.Events.FunctionFlag("IntroSplit", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "EntryElvatorDay1");
+    // [MeteoriteChamber02_Gameplay_C] [MeteoriteChamber02_Gameplay_C] [BndEvt__BP_GenericActivator_208_K2Node_ActorBoundEvent_1_LevelEventDelegate_OnActorInteraction__DelegateSignature]
+    // [MeteoriteChamber02_Gameplay_C] [MeteoriteChamber02_Gameplay_C] [OnStop] this one appears again in Lab (Cliff)
     // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [MapLoaded]
     // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [SecondaryMapLoaded]
     // [BotanicalDome01_P_C] [BotanicalDome01_P_C] [OnLoadLevels]
+    // [BDome01_Gameplay_C] [BDome01_Gameplay_C] [EntryElvatorDay1]
 
 
     vars.Events.FunctionFlag("Track1Split", "BotanicalLab01_P_C", "BotanicalLab01_P_C", "SecondaryMapLoaded");
@@ -121,6 +123,7 @@ init
     // [BotanicalLab01_P_C] [BotanicalLab01_P_C] [MapLoaded]
     // try this:
     // [BotanicalLab01_P_C] [BotanicalLab01_P_C] [SecondaryMapLoaded]
+    // [PatelRoom_Geo_C] [PatelRoom_Geo_C] [PatelRoomConvers1]
 
 
     vars.Events.FunctionFlag("LabForestSplit", "BDome01_Gameplay_C", "BDome01_Gameplay_C", "EntryElevatorDay2");
@@ -135,7 +138,7 @@ init
     // [BDome01_Audio_C] [BDome01_Audio_C] [BndEvt__TriggerBox13_11_K2Node_ActorBoundEvent_20_ActorBeginOverlapSignature__DelegateSignature]
     // [Lobby_P_C] [Lobby_P_C] [MapLoaded]
     // [Lobby_P_C] [Lobby_P_C] [SecondaryMapLoaded]
-    // [Lobby_P_C] [Lobby_P_C] [OnLoadLevels]
+    // [Lobby_P_C] [Lobby_P_C] [OnLoadLevels] these appear multiple times throughout the game
     // [PatelRoom_Geo_C] [PatelRoom_Geo_C] [PatelRoomConvers2]
 
     vars.Events.FunctionFlag("LabTaigaSplit", "GlaciarDome01_P_C", "GlaciarDome01_P_C", "OnLoadLevels");
@@ -159,12 +162,12 @@ init
     // [GlaciarDome02_Geo_C] [GlaciarDome02_Geo_C] [BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_5_ElevatorGetsToDestination__DelegateSignature]
 
 
-    vars.Events.FunctionFlag("CavesSplit", "GlaciarLab03_P_C", "GlaciarLab03_P_C", "OnLoadLevels");
+    vars.Events.FunctionFlag("CavesSplit", "GlaciarLab03_Gameplay_C", "GlaciarLab03_Gameplay_C", "ExecuteUbergraph_GlaciarLab03_Gameplay");
     // [BP_NarrativeElevator_C] [BP_NarrativeElevator] [BndEvt__EnterElevatorCollision_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature]
     // [GlaciarLab03_P_C] [GlaciarLab03_P_C] [MapLoaded]
     // [GlaciarLab03_P_C] [GlaciarLab03_P_C] [SecondaryMapLoaded]
     // [GlaciarLab03_Gameplay_C] [GlaciarLab03_Gameplay_C] [ExecuteUbergraph_GlaciarLab03_Gameplay]
-    // [GlaciarLab03_P_C] [GlaciarLab03_P_C] [OnLoadLevels]
+    // [GlaciarLab03_P_C] [GlaciarLab03_P_C] [OnLoadLevels] also appears in Lab (Glacier)
 
     // Split for Relicta chamber?
     // [MeteoriteChamber02_Gameplay_C] [MeteoriteChamber02_Gameplay_C] [BndEvt__BP_GenericActivator_208_K2Node_ActorBoundEvent_1_LevelEventDelegate_OnActorInteraction__DelegateSignature]
@@ -178,7 +181,17 @@ init
     // [BotanicalDome02_Geo_C] [BotanicalDome02_Geo_C] [BndEvt__BP_NarrativeElevator_2_K2Node_ActorBoundEvent_0_ElevatorGetsToDestination__DelegateSignature]
 
 
-    vars.Events.FunctionFlag("CliffSplit", "BotanicalLab03_P_C", "BotanicalLab03_P_C", "OnLoadLevels");
+    // CliffPuzzle 1
+    // [BotanicalDome02_Audio_C] [BotanicalDome02_Audio_C] [BndEvt__TriggerBox_1_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature]
+
+    // CliffPuzzle 2
+    // [BotanicalDome02_Audio_C] [BotanicalDome02_Audio_C] [BndEvt__TriggerBox3_3_K2Node_ActorBoundEvent_2_ActorBeginOverlapSignature__DelegateSignature]
+
+    // CliffPuzzle 4
+    // [BotanicalDome02_Audio_C] [BotanicalDome02_Audio_C] [BndEvt__TriggerBox2_2_K2Node_ActorBoundEvent_1_ActorBeginOverlapSignature__DelegateSignature]
+
+
+    vars.Events.FunctionFlag("CliffSplit", "BotanicalLab03_Geo_C", "BotanicalLab03_Geo_C", "BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_1_ElevatorGetsToDestination__DelegateSignature");
     // [BotanicalLab03_P_C] [BotanicalLab03_P_C] [MapLoaded]
     // [BotanicalLab03_P_C] [BotanicalLab03_P_C] [SecondaryMapLoaded]
     // [BotanicalLab03_Geo_C] [BotanicalLab03_Geo_C] [ExecuteUbergraph_BotanicalLab03_Geo]
@@ -186,27 +199,55 @@ init
     // [BotanicalLab03_Geo_C] [BotanicalLab03_Geo_C] [BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_1_ElevatorGetsToDestination__DelegateSignature]
 
 
-    vars.Events.FunctionFlag("LabCanyon", "AridDome01_P_C", "AridDome01_P_C", "OnLoadLevels");
+    vars.Events.FunctionFlag("LabCanyonSplit", "AridDome01_P_C", "AridDome01_P_C", "OnLoadLevels");
     // [AridDome01_P_C] [AridDome01_P_C] [MapLoaded]
     // [AridDome01_P_C] [AridDome01_P_C] [SecondaryMapLoaded]
     // [AridDome01_P_C] [AridDome01_P_C] [OnLoadLevels]
     // [AridDome01_Geo_C] [AridDome01_Geo_C] [BndEvt__BP_NarrativeElevator_2_K2Node_ActorBoundEvent_5_ElevatorGetsToDestination__DelegateSignature]
 
-    vars.Events.FunctionFlag("Canyon", "AridLab02_P_C", "AridLab02_P_C", "OnLoadLevels");
+
+    // CanyonPuzzle 2
+    // [AridDome01_Geo_C] [AridDome01_Geo_C] [BndEvt__TriggerBox_1_K2Node_ActorBoundEvent_3_ActorBeginOverlapSignature__DelegateSignature]
+
+    // CanyonPuzzle 4
+    // [AridDome01_Geo_C] [AridDome01_Geo_C] [BndEvt__TriggerBox2_4_K2Node_ActorBoundEvent_4_ActorBeginOverlapSignature__DelegateSignature]
+
+    // CanyonPuzzle 6
+    // [AridDome01_Geo_C] [AridDome01_Geo_C] [BndEvt__TriggerVolume4_4_K2Node_ActorBoundEvent_7_ActorEndOverlapSignature__DelegateSignature]
+
+
+    vars.Events.FunctionFlag("CanyonSplit", "AridLab02_Gameplay_C", "AridLab02_Gameplay_C", "BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_0_ElevatorGetsToDestination__DelegateSignature");
     // [AridLab02_P_C] [AridLab02_P_C] [MapLoaded]
     // [AridLab02_P_C] [AridLab02_P_C] [SecondaryMapLoaded]
     // [AridLab02_P_C] [AridLab02_P_C] [OnLoadLevels]
     // [AridLab02_Geo_C] [AridLab02_Geo_C] [StartStandard]
     // [AridLab02_Gameplay_C] [AridLab02_Gameplay_C] [BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_0_ElevatorGetsToDestination__DelegateSignature]
 
-    vars.Events.FunctionFlag("LabBeach", "TropicalDome01_P_C", "TropicalDome01_P_C", "OnLoadLevels");
+    vars.Events.FunctionFlag("LabBeachSplit", "TropicalDome01_P_C", "TropicalDome01_P_C", "OnLoadLevels");
     // [TropicalDome01_P_C] [TropicalDome01_P_C] [MapLoaded]
     // [TropicalDome01_P_C] [TropicalDome01_P_C] [SecondaryMapLoaded]
     // [TropicalDome01_P_C] [TropicalDome01_P_C] [OnLoadLevels]
     // [TDome01_Geo_C] [TDome01_Geo_C] [BndEvt__TriggerBox2_3_K2Node_ActorBoundEvent_1_ActorBeginOverlapSignature__DelegateSignature]
     // [TDome01_Geo_C] [TDome01_Geo_C] [ExecuteUbergraph_TDome01_Geo]
 
-    vars.Events.FunctionFlag("Beach", "TropicalLab02_P_C", "TropicalLab02_P_C", "OnLoadLevels");
+
+    // BeachPuzzle 1
+    // [TDome01_Geo_C] [TDome01_Geo_C] [BndEvt__TriggerBox3_6_K2Node_ActorBoundEvent_2_ActorBeginOverlapSignature__DelegateSignature]
+
+    // BeachPuzzle 2
+    // [TDome01_Geo_C] [TDome01_Geo_C] [BndEvt__TriggerBox4_2_K2Node_ActorBoundEvent_3_ActorBeginOverlapSignature__DelegateSignature]
+
+    // BeachPuzzle 3
+    // [TDome01_Geo_C] [TDome01_Geo_C] [BndEvt__TriggerBox5_3_K2Node_ActorBoundEvent_4_ActorBeginOverlapSignature__DelegateSignature]
+
+    // BeachPuzzle 4
+    // [TDome01_Geo_C] [TDome01_Geo_C] [BndEvt__TriggerBox6_6_K2Node_ActorBoundEvent_5_ActorBeginOverlapSignature__DelegateSignature]
+
+    // BeachPuzzle 5
+    // [TDome01_Geo_C] [TDome01_Geo_C] [BndEvt__TriggerBox_1_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature]
+
+
+    vars.Events.FunctionFlag("BeachSplit", "TropicalLab02_Geo_C", "TropicalLab02_Geo_C", "BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_0_ElevatorGetsToDestination__DelegateSignature");
     // [TDome01_Geo_C] [TDome01_Geo_C] [ExecuteUbergraph_TDome01_Geo]
     // [TropicalLab02_P_C] [TropicalLab02_P_C] [MapLoaded]
     // [TropicalLab02_P_C] [TropicalLab02_P_C] [SecondaryMapLoaded]
@@ -214,7 +255,7 @@ init
     // [TropicalLab02_Geo_C] [TropicalLab02_Geo_C] [StartStandard]
     // [TropicalLab02_Geo_C] [TropicalLab02_Geo_C] [BndEvt__BP_NarrativeElevator2_5_K2Node_ActorBoundEvent_0_ElevatorGetsToDestination__DelegateSignature]
 
-    vars.Events.FunctionFlag("LabGlacier", "GlaciarDome03_P_C", "GlaciarDome03_P_C", "OnLoadLevels");
+    vars.Events.FunctionFlag("LabGlacierSplit", "GlaciarDome03_P_C", "GlaciarDome03_P_C", "OnLoadLevels");
     // [GlaciarLab03_Gameplay_C] [GlaciarLab03_Gameplay_C] [ExecuteUbergraph_GlaciarLab03_Gameplay]
     // [GlaciarDome03_P_C] [GlaciarDome03_P_C] [MapLoaded]
     // [GlaciarDome03_P_C] [GlaciarDome03_P_C] [SecondaryMapLoaded]
@@ -236,13 +277,13 @@ init
     //GlacierPuzzle 5
     // [GlaciarDome03_Geo_C] [GlaciarDome03_Geo_C] [BndEvt__TriggerBox7_15_K2Node_ActorBoundEvent_7_ActorBeginOverlapSignature__DelegateSignature]
 
-    vars.Events.FunctionFlag("Glacier", "Lobby_Geo_C", "Lobby_Geo_C", "SetLobbyGlaciarActivationScene");
+    vars.Events.FunctionFlag("GlacierSplit", "Lobby_Geo_C", "Lobby_Geo_C", "SetLobbyGlaciarActivationScene");
     // [GlaciarDome03_Geo_C] [GlaciarDome03_Geo_C] [OnStop]
     // [BP_PAPlayerController_C] [BP_PAPlayerController_C] [K2_UpdateAchievementProgress]
     // [Lobby_Geo_C] [Lobby_Geo_C] [SetLobbyGlaciarActivationScene]
     // [Lobby_Geo_C] [Lobby_Geo_C] [ExecuteUbergraph_Lobby_Geo]
 
-    vars.Events.FunctionFlag("LabRiver", "BotanicalDome03_P_C", "BotanicalDome03_P_C", "OnLoadLevels");
+    vars.Events.FunctionFlag("LabRiverSplit", "BotanicalDome03_P_C", "BotanicalDome03_P_C", "OnLoadLevels");
     // [BotanicalDome03_P_C] [BotanicalDome03_P_C] [MapLoaded]
     // [BotanicalDome03_P_C] [BotanicalDome03_P_C] [SecondaryMapLoaded]
     // [BotanicalDome03_P_C] [BotanicalDome03_P_C] [OnLoadLevels]
@@ -263,14 +304,14 @@ init
     // RiverPuzzle 6
     // [BotanicalDome03_Geo_C] [BotanicalDome03_Geo_C] [BndEvt__TriggerBox6_18_K2Node_ActorBoundEvent_6_ActorBeginOverlapSignature__DelegateSignature]
 
-    vars.Events.FunctionFlag("River", "Lobby_Geo_C", "Lobby_Geo_C", "SetLobbyBotanicalActivationScene");
+    vars.Events.FunctionFlag("RiverSplit", "Lobby_Geo_C", "Lobby_Geo_C", "SetLobbyBotanicalActivationScene");
     // very early (dialogue):
     // [BotanicalDome03_Geo_C] [BotanicalDome03_Geo_C] [BndEvt__TriggerBox7_21_K2Node_ActorBoundEvent_7_ActorBeginOverlapSignature__DelegateSignature]
     // [BotanicalDome03_Geo_C] [BotanicalDome03_Geo_C] [CustomEvent]
     // [BotDome03_Audio_C] [BotDome03_Audio_C] [StopMusic]
     // [Lobby_Geo_C] [Lobby_Geo_C] [SetLobbyBotanicalActivationScene]
 
-    vars.Events.FunctionFlag("LabDesert", "AridDome02_P_C", "AridDome02_P_C", "OnLoadLevels");
+    vars.Events.FunctionFlag("LabDesertSplit", "AridDome02_P_C", "AridDome02_P_C", "OnLoadLevels");
     // [AridDome02_P_C] [AridDome02_P_C] [MapLoaded]
     // [AridDome02_P_C] [AridDome02_P_C] [SecondaryMapLoaded]
     // [AridDome02_P_C] [AridDome02_P_C] [OnLoadLevels]
@@ -282,7 +323,7 @@ init
     // DesertPuzzle 3
     // [AridDome02_P_C] [AridDome02_P_C] [BndEvt__TriggerBox4_10_K2Node_ActorBoundEvent_3_ActorBeginOverlapSignature__DelegateSignature]
 
-    vars.Events.FunctionFlag("Desert", "Lobby_Geo_C", "Lobby_Geo_C", "SetLobbyAridActivationScene");
+    vars.Events.FunctionFlag("DesertSplit", "Lobby_Geo_C", "Lobby_Geo_C", "SetLobbyAridActivationScene");
     // [AridDome02_P_C] [AridDome02_P_C] [BndEvt__TriggerBox5_13_K2Node_ActorBoundEvent_4_ActorBeginOverlapSignature__DelegateSignature]
     // [AridDome02_Geo_C] [AridDome02_Geo_C] [BndEvt__BP_ActivationButtonExecutor_2_K2Node_ActorBoundEvent_0_ButtonExecutor_OnActive__DelegateSignature]
     // [BP_PAPlayerController_C] [BP_PAPlayerController_C] [K2_UpdateAchievementProgress]
@@ -290,14 +331,13 @@ init
     // [AridDome02_Geo_C] [AridDome02_Geo_C] [OnStopMachine]
     // [Lobby_Geo_C] [Lobby_Geo_C] [SetLobbyAridActivationScene]
 
-    vars.Events.FunctionFlag("LabJungle", "TropicalDome02_P_C", "TropicalDome02_P_C", "OnLoadLevels");
+    vars.Events.FunctionFlag("LabJungleSplit", "TDome02_Geo_C", "TDome02_Geo_C", "OnLoadLevels");
     // [TropicalLab02_Geo_C] [TropicalLab02_Geo_C] [ExecuteUbergraph_TropicalLab02_Geo]
     // [TropicalDome02_P_C] [TropicalDome02_P_C] [MapLoaded]
     // [TDome02_Geo_C] [TDome02_Geo_C] [BndEvt__TriggerCaveLight2_K2Node_ActorBoundEvent_1_ActorBeginOverlapSignature__DelegateSignature]
     // [TDome02_Geo_C] [TDome02_Geo_C] [BndEvt__TriggerCaveLight_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature]
     // [TropicalDome02_P_C] [TropicalDome02_P_C] [SecondaryMapLoaded]
-    // [TDome02_Puzzle71_Reset_C] [TDome02_Puzzle71_Reset_C] [BndEvt__BP_PressurePlate20_2_K2Node_ActorBoundEvent_2_Pressure_OnActive__DelegateSignature]
-    // [TropicalDome02_P_C] [TropicalDome02_P_C] [OnLoadLevels]
+    // [TropicalDome02_P_C] [TropicalDome02_P_C] [OnLoadLevels] (splits after Maglev)
     // [TDome02_Geo_C] [TDome02_Geo_C] [BndEvt__TriggerBox2_2_K2Node_ActorBoundEvent_5_ActorBeginOverlapSignature__DelegateSignature]
 
     // JunglePuzzle 1
@@ -309,7 +349,7 @@ init
     // Jungle Puzzle 4
     // [TDome02_Geo_C] [TDome02_Geo_C] [BndEvt__TriggerBox5_9_K2Node_ActorBoundEvent_8_ActorBeginOverlapSignature__DelegateSignature]
 
-    vars.Events.FunctionFlag("Jungle", "Lobby_Geo_C", "Lobby_Geo_C", "SceneLobbyTropicalActivation");
+    vars.Events.FunctionFlag("JungleSplit", "Lobby_Geo_C", "Lobby_Geo_C", "SceneLobbyTropicalActivation");
     // [TDome02_Geo_C] [TDome02_Geo_C] [BndEvt__TriggerBox6_12_K2Node_ActorBoundEvent_4_ActorEndOverlapSignature__DelegateSignature]
     // [TDome02_Audio_C] [TDome02_Audio_C] [BndEvt__TriggerVolume4_5_K2Node_ActorBoundEvent_1_ActorBeginOverlapSignature__DelegateSignature]
     // [TDome02_Geo_C] [TDome02_Geo_C] [ExecuteUbergraph_TDome02_Geo]
@@ -317,11 +357,11 @@ init
     // [TDome02_Geo_C] [TDome02_Geo_C] [EndSequenceMachine]
     // [Lobby_Geo_C] [Lobby_Geo_C] [SceneLobbyTropicalActivation]
 
-    vars.Events.FunctionFlag("EndTable", "Lobby_Geo_C", "Lobby_Geo_C", "OnStopEndingB");
+    vars.Events.FunctionFlag("EndTableSplit", "Lobby_Geo_C", "Lobby_Geo_C", "OnStopEndingB");
     // [Lobby_Geo_C] [Lobby_Geo_C] [BndEvt__HoloTableSeq_Activ_K2Node_ActorBoundEvent_0_LevelEventDelegate_OnActorInteraction__DelegateSignature]
     // [Lobby_Geo_C] [Lobby_Geo_C] [OnStopEndingB]
 
-    vars.Events.FunctionFlag("EndHangar", "Lobby_Geo_C", "Lobby_Geo_C", "OnStopEndingA");
+    vars.Events.FunctionFlag("EndHangarSplit", "Lobby_Geo_C", "Lobby_Geo_C", "OnStopEndingA");
     // [Lobby_Geo_C] [Lobby_Geo_C] [BndEvt__BP_GenericActivator_2_K2Node_ActorBoundEvent_9_LevelEventDelegate_OnActorInteraction__DelegateSignature]
     // [Lobby_Geo_C] [Lobby_Geo_C] [OnStopEndingA]
 }
@@ -381,6 +421,9 @@ split
 
     if (vars.Resolver.CheckFlag("JungleSplit") && settings["LabJungleSplit"] && vars.DoSplitOnce("LabJungleSplit")) return true;
     if (vars.Resolver.CheckFlag("JungleSplit") && settings["JungleSplit"] && vars.DoSplitOnce("JungleSplit")) return true;
+
+    if (vars.Resolver.CheckFlag("EndTableSplit") && settings["EndTableSplit"] && vars.DoSplitOnce("EndTableSplit")) return true;
+    if (vars.Resolver.CheckFlag("EndHangarSplit") && settings["EndHangarSplit"] && vars.DoSplitOnce("EndHangarSplit")) return true;
 }
 
 reset
