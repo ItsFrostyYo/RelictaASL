@@ -201,7 +201,7 @@ init
     vars.Events.FunctionFlag("Jungle1", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerBox3_3_K2Node_ActorBoundEvent_6_ActorBeginOverlapSignature__DelegateSignature");
     vars.Events.FunctionFlag("Jungle3", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerBox4_6_K2Node_ActorBoundEvent_7_ActorBeginOverlapSignature__DelegateSignature");
     vars.Events.FunctionFlag("Jungle4", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerBox5_9_K2Node_ActorBoundEvent_8_ActorBeginOverlapSignature__DelegateSignature");
-    vars.Events.FunctionFlag("JungleSplit", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerBox6_12_K2Node_ActorBoundEvent_4_ActorEndOverlapSignature__DelegateSignature+");
+    vars.Events.FunctionFlag("JungleSplit", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerBox6_12_K2Node_ActorBoundEvent_9_ActorBeginOverlapSignature__DelegateSignature");
 
     vars.Events.FunctionFlag("EndTableSplit", "Lobby_Geo_C", "Lobby_Geo_C", "OnStopEndingB");
     vars.Events.FunctionFlag("EndHangarSplit", "Lobby_Geo_C", "Lobby_Geo_C", "OnStopEndingA");
