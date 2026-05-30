@@ -54,67 +54,67 @@ startup
         { "ForestSplit", true, "Split on Forest end", "SplitsGroup" },
 
         { "LabTaigaSplit", true, "Split on Taiga Enter", "SplitsGroup" },
-        { "TaigaGroup", true, "Taiga splits", "SplitsGroup"},
-        { "Taiga3", false, "Split on Taiga Puzzle 3", "TaigaGroup"},
-        { "TaigaSplit", true, "Split on Taiga end", "TaigaGroup" },
+        { "TaigaGroup", false, "Taiga puzzles", "SplitsGroup"},
+        { "Taiga3", true, "Split on Taiga Puzzle 3", "TaigaGroup"},
+        { "TaigaSplit", true, "Split on Taiga end", "SplitsGroup" },
 
         { "LabCavesSplit", true, "Split on Caves Enter", "SplitsGroup" },
-        { "CavesGroup", true, "Caves splits", "SplitsGroup"},
-        { "Caves2", false, "Split on Caves Puzzle 2", "CavesGroup"},
-        { "Caves5", false, "Split on Caves Puzzle 5", "CavesGroup"},
-        { "CavesSplit", true, "Split on Caves end", "CavesGroup" },
+        { "CavesGroup", false, "Caves puzzles", "SplitsGroup"},
+        { "Caves2", true, "Split on Caves Puzzle 2", "CavesGroup"},
+        { "Caves5", true, "Split on Caves Puzzle 5", "CavesGroup"},
+        { "CavesSplit", true, "Split on Caves end", "SplitsGroup" },
 
         { "LabCliffSplit", true, "Split on Cliff Enter", "SplitsGroup" },
-        { "CliffGroup", true, "Cliff splits", "SplitsGroup"},
-        { "Cliff1", false, "Split on Cliff Puzzle 1", "CliffGroup"},
-        { "Cliff3", false, "Split on Cliff Puzzle 3", "CliffGroup"},
-        { "Cliff5", false, "Split on Cliff Puzzle 5", "CliffGroup"},
-        { "CliffSplit", true, "Split on Cliff end", "CliffGroup" },
+        { "CliffGroup", false, "Cliff puzzles", "SplitsGroup"},
+        { "Cliff1", true, "Split on Cliff Puzzle 1", "CliffGroup"},
+        { "Cliff3", true, "Split on Cliff Puzzle 3", "CliffGroup"},
+        { "Cliff5", true, "Split on Cliff Puzzle 5", "CliffGroup"},
+        { "CliffSplit", true, "Split on Cliff end", "SplitsGroup" },
 
         { "LabCanyonSplit", true, "Split on Canyon Enter", "SplitsGroup" },
-        { "CanyonGroup", true, "Canyon splits", "SplitsGroup"},
-        { "Canyon2", false, "Split on Canyon Puzzle 2", "CanyonGroup"},
-        { "Canyon4", false, "Split on Canyon Puzzle 4", "CanyonGroup"},
-        { "CanyonSplit", true, "Split on Canyon end", "CanyonGroup" },
+        { "CanyonGroup", false, "Canyon puzzles", "SplitsGroup"},
+        { "Canyon2", true, "Split on Canyon Puzzle 2", "CanyonGroup"},
+        { "Canyon4", true, "Split on Canyon Puzzle 4", "CanyonGroup"},
+        { "CanyonSplit", true, "Split on Canyon end", "SplitsGroup" },
 
         { "LabBeachSplit", true, "Split on Beach Enter", "SplitsGroup" },
-        { "BeachGroup", true, "Beach splits", "SplitsGroup"},
-        { "Beach1", false, "Split on Beach Puzzle 1", "BeachGroup"},
-        { "Beach2", false, "Split on Beach Puzzle 2", "BeachGroup"},
-        { "Beach3", false, "Split on Beach Puzzle 3", "BeachGroup"},
-        { "Beach4", false, "Split on Beach Puzzle 4", "BeachGroup"},
-        { "BeachSplit", true, "Split on Beach end", "BeachGroup" },
+        { "BeachGroup", false, "Beach puzzles", "SplitsGroup"},
+        { "Beach1", true, "Split on Beach Puzzle 1", "BeachGroup"},
+        { "Beach2", true, "Split on Beach Puzzle 2", "BeachGroup"},
+        { "Beach3", true, "Split on Beach Puzzle 3", "BeachGroup"},
+        { "Beach4", true, "Split on Beach Puzzle 4", "BeachGroup"},
+        { "BeachSplit", true, "Split on Beach end", "SplitsGroup" },
 
         { "LabGlacierSplit", true, "Split on Glacier Enter", "SplitsGroup" },
-        { "GlacierGroup", true, "Glacier splits", "SplitsGroup"},
-        { "Glacier1", false, "Split on Glacier Puzzle 1", "GlacierGroup"},
-        { "Glacier2", false, "Split on Glacier Puzzle 2", "GlacierGroup"},
-        { "Glacier3", false, "Split on Glacier Puzzle 3", "GlacierGroup"},
-        { "Glacier4", false, "Split on Glacier Puzzle 4", "GlacierGroup"},
-        { "Glacier5", false, "Split on Glacier Puzzle 5", "GlacierGroup" },
-        { "GlacierSplit", true, "Split on Glacier end", "GlacierGroup" },
+        { "GlacierGroup", false, "Glacier puzzles", "SplitsGroup"},
+        { "Glacier1", true, "Split on Glacier Puzzle 1", "GlacierGroup"},
+        { "Glacier2", true, "Split on Glacier Puzzle 2", "GlacierGroup"},
+        { "Glacier3", true, "Split on Glacier Puzzle 3", "GlacierGroup"},
+        { "Glacier4", true, "Split on Glacier Puzzle 4", "GlacierGroup"},
+        { "Glacier5", true, "Split on Glacier Puzzle 5", "GlacierGroup" },
+        { "GlacierSplit", true, "Split on Glacier end", "SplitsGroup" },
 
         { "LabRiverSplit", true, "Split on River Enter", "SplitsGroup" },
-        { "RiverGroup", true, "River splits", "SplitsGroup"},
-        { "River1", false, "Split on River Puzzle 1", "RiverGroup"},
-        { "River2", false, "Split on River Puzzle 2", "RiverGroup"},
-        { "River3", false, "Split on River Puzzle 3", "RiverGroup"},
-        { "River5", false, "Split on River Puzzle 5", "RiverGroup"},
-        { "River6", false, "Split on River Puzzle 6", "RiverGroup"},
-        { "RiverSplit", true, "Split on River end", "RiverGroup" },
+        { "RiverGroup", false, "River puzzles", "SplitsGroup"},
+        { "River1", true, "Split on River Puzzle 1", "RiverGroup"},
+        { "River2", true, "Split on River Puzzle 2", "RiverGroup"},
+        { "River3", true, "Split on River Puzzle 3", "RiverGroup"},
+        { "River5", true, "Split on River Puzzle 5", "RiverGroup"},
+        { "River6", true, "Split on River Puzzle 6", "RiverGroup"},
+        { "RiverSplit", true, "Split on River end", "SplitsGroup" },
 
         { "LabDesertSplit", true, "Split on Desert Enter", "SplitsGroup" },
-        { "DesertGroup", true, "Desert splits", "SplitsGroup"},
-        { "Desert2", false, "Split on Desert Puzzle 2", "DesertGroup"},
-        { "Desert3", false, "Split on Desert Puzzle 3", "DesertGroup"},
-        { "DesertSplit", true, "Split on Desert end", "DesertGroup" },
+        { "DesertGroup", false, "Desert puzzles", "SplitsGroup"},
+        { "Desert2", true, "Split on Desert Puzzle 2", "DesertGroup"},
+        { "Desert3", true, "Split on Desert Puzzle 3", "DesertGroup"},
+        { "DesertSplit", true, "Split on Desert end", "SplitsGroup" },
 
         { "LabJungleSplit", true, "Split on Jungle Enter", "SplitsGroup" },
-        { "JungleGroup", true, "Jungle splits", "SplitsGroup"},
-        { "Jungle1", false, "Split on Jungle Puzzle 1", "JungleGroup"},
-        { "Jungle3", false, "Split on Jungle Puzzle 3", "JungleGroup"},
-        { "Jungle4", false, "Split on Jungle Puzzle 4", "JungleGroup"},
-        { "JungleSplit", true, "Split on Jungle end", "JungleGroup" },
+        { "JungleGroup", false, "Jungle puzzles", "SplitsGroup"},
+        { "Jungle1", true, "Split on Jungle Puzzle 1", "JungleGroup"},
+        { "Jungle3", true, "Split on Jungle Puzzle 3", "JungleGroup"},
+        { "Jungle4", true, "Split on Jungle Puzzle 4", "JungleGroup"},
+        { "JungleSplit", true, "Split on Jungle end", "SplitsGroup" },
 
         { "EndTableSplit", true, "Split on Ending", "SplitsGroup" },
     };
@@ -197,7 +197,7 @@ init
     vars.Events.FunctionFlag("Desert3", "AridDome02_P_C", "AridDome02_P_C", "BndEvt__TriggerBox4_10_K2Node_ActorBoundEvent_3_ActorBeginOverlapSignature__DelegateSignature");
     vars.Events.FunctionFlag("DesertSplit", "AridDome02_P_C", "AridDome02_P_C", "BndEvt__TriggerBox5_13_K2Node_ActorBoundEvent_4_ActorBeginOverlapSignature__DelegateSignature");
 
-    vars.Events.FunctionFlag("LabJungleSplit", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerCaveLight_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature");
+    vars.Events.FunctionFlag("LabJungleSplit", "TropicalDome02_P_C", "TropicalDome02_P_C", "OnLoadLevels");
     vars.Events.FunctionFlag("Jungle1", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerBox3_3_K2Node_ActorBoundEvent_6_ActorBeginOverlapSignature__DelegateSignature");
     vars.Events.FunctionFlag("Jungle3", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerBox4_6_K2Node_ActorBoundEvent_7_ActorBeginOverlapSignature__DelegateSignature");
     vars.Events.FunctionFlag("Jungle4", "TDome02_Geo_C", "TDome02_Geo_C", "BndEvt__TriggerBox5_9_K2Node_ActorBoundEvent_8_ActorBeginOverlapSignature__DelegateSignature");
@@ -284,7 +284,7 @@ split
     if (vars.Resolver.CheckFlag("Desert3") && settings["Desert3"] && vars.DoSplitOnce("Desert3")) return true;
     if (vars.Resolver.CheckFlag("DesertSplit") && settings["DesertSplit"] && vars.DoSplitOnce("DesertSplit")) return true;
 
-    if (vars.Resolver.CheckFlag("JungleSplit") && settings["LabJungleSplit"] && vars.DoSplitOnce("LabJungleSplit")) return true;
+    if (vars.Resolver.CheckFlag("LabJungleSplit") && settings["LabJungleSplit"] && vars.DoSplitOnce("LabJungleSplit")) return true;
     if (vars.Resolver.CheckFlag("Jungle1") && settings["Jungle1"] && vars.DoSplitOnce("Jungle1")) return true;
     if (vars.Resolver.CheckFlag("Jungle3") && settings["Jungle3"] && vars.DoSplitOnce("Jungle3")) return true;
     if (vars.Resolver.CheckFlag("Jungle4") && settings["Jungle4"] && vars.DoSplitOnce("Jungle4")) return true;
